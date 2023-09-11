@@ -14,25 +14,40 @@ import com.project.ForeignExchangeTrading.model.FXTradingEntity;
 import com.project.ForeignExchangeTrading.services.FXTradingService;
 
 @RestController
-
-@RequestMapping("trade")
+@RequestMapping("/trade")
 public class FXTradingController {
-	
+
+	/**
+	 * Autowired the TradeService to handle trade-related operations
+	 */
 	@Autowired
 	private FXTradingService FxTradeService;
-	
+
+	/**
+	 * POST endpoint to book a trade.
+	 * 
+	 * @param trade The trade details provided in the request body.
+	 * 
+	 * @return The result of the trade booking.
+	 */
+
 	@PostMapping("booktrade")
-    public Map<String,String> bookTrade(@RequestBody FXTradingEntity Fxtrade){
-		
+	public Map<String, String> bookTrade(@RequestBody FXTradingEntity Fxtrade) {
 
 		return FxTradeService.bookTrade(Fxtrade);
-    }
-	
+	}
+
+	/**
+	 * GET endpoint to retrieve a list of trades.
+	 *
+	 * @return the trade details or an error message.
+	 */
+
 	@GetMapping("getalltrades")
-	public Object getAllTrades(){
-		
+	public Object getAllTrades() {
+
 		List<FXTradingEntity> tradeList = this.FxTradeService.getTradeList();
-		
+
 		if (tradeList.isEmpty()) {
 			return "Your Trade List is Empty";
 		} else {
