@@ -1,21 +1,21 @@
 package com.project.ForeignExchangeTrading.model;
 
 public class FXTradingEntity {
-	
-	//Instance Variable
+
+	// Instance Variable
 	private static int tradeCount = 0;
 	private int customerID;
 	private String customerName;
-    private String currencyPair;
-    private double amount;
-    private double rate = 66.00;
-    
-    //Default Constructor
-    public FXTradingEntity() {
-    	
-    }
-    
-    //Parameterized Constructor
+	private String currencyPair;
+	private double amount;
+	private double rate = 66.00;
+
+	// Default Constructor
+	public FXTradingEntity() {
+
+	}
+
+	// Parameterized Constructor for creating a new trade
 	public FXTradingEntity(String customerName, String currencyPair, double amount) {
 		super();
 		tradeCount++;
@@ -24,8 +24,8 @@ public class FXTradingEntity {
 		this.currencyPair = currencyPair;
 		this.amount = amount;
 	}
-	
-	//Getter-Setter Method
+
+	// Getter-Setter Method for retrieving & updating field values
 	public int getCustomerID() {
 		return customerID;
 	}
@@ -65,14 +65,12 @@ public class FXTradingEntity {
 	public void setRate(double rate) {
 		this.rate = rate;
 	}
-	
+
 	// to-String Method
 	@Override
 	public String toString() {
 		return "FXTradingEntity [customerID=" + customerID + ", customerName=" + customerName + ", currencyPair="
 				+ currencyPair + ", amount=" + amount + ", rate=" + rate + "]";
 	}
-	
-	
-    
+
 }
